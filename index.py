@@ -25,12 +25,12 @@ def lambda_handler(event, context):
     
     def handle_message(event: MessageEvent):
         response = lex_client.recognize_text(
-            botId = 'AKHUPLIXGO',
-            botAliasId = 'TSTALIASID',
+            botId = '',
+            botAliasId = '',
             localeId = 'zh_CN',
             sessionId=event.source.user_id,
             text=event.message.text)
-        # Lexからの応答テキストをLINEへポストする
+        
         for message in response['messages']:
             line_bot_api.reply_message(
                 event.reply_token,
